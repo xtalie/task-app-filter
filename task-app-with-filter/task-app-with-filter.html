@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task-app-with-filter</title>
+    <link rel="stylesheet" href="./task-app-with-filter.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="name-intro">
+        <p class="user-name">Hello, <span class="name">Esther</span></p>
+        <p>Here are the list of you task for today</p>
+      </div>
+
+      <!--  search input and add task area -->
+      <div class="head-content">
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            class="input"
+            type="text"
+            id="textInput"
+            placeholder="Filter by description.."
+          />
+
+          <div class="cancel">
+            <button id="cancel"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+
+        <div class="add-items" id="addTask">
+          <button>+ Add Task</button>
+        </div>
+      </div>
+
+      <main id="wrapper">
+        <!-- filtered by status -->
+        <section class="body-content">
+          <p class="filtered-options">Filtered by status</p>
+
+          <div class="filter-buttons">
+            <div class="buttons">
+              <button class="btn">All</button>
+              <button class="btn btn-color">Done</button>
+              <button class="btn btn-color">InProgress</button>
+              <button class="btn btn-color">Todo</button>
+            </div>
+
+            <div class="filter-img img">
+              <i class="fa-solid fa-filter"></i>
+              <p class="tool">more filter</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- all- checked and delete -->
+        <div class="total-selected-items">
+          <div class="all-selected">
+            <p class="selected-text">10 Selected</p>
+          </div>
+
+          <div class="delete-selected">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+        </div>
+
+        <!-- error message -->
+        <section class="error-message" id="errorMessage">
+          <div class="error-search-img">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+
+          <h3>No Result For <span id="inputedErrorText"></span></h3>
+          <p>Check the Spelling or try a new Search</p>
+        </section>
+
+        <!-- table content -->
+        <table class="todo-table" id="todoTable">
+          <thead class="table-head">
+            <th><input type="checkbox" name="" id="checkbox" /></th>
+            <th>S/N</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Priority</th>
+            <th></th>
+          </thead>
+
+          <tbody id="myTable"></tbody>
+        </table>
+      </main>
+
+      <!-- pagination -->
+      <section class="wrap">
+        <ul id="listContainer"></ul>
+        <div class="pagination">
+          <p class="display">
+            <span class="gray-text">Displaying </span>
+            <b><span id="currentPage"></span> - <span id="totalPage"></span></b>
+            <span class="gray-text" id="totalItems"></span>
+          </p>
+
+          <div class="previous">
+            <button id="prev">previous</button>
+            <b class="page-number" id="pageNumber">1</b>
+            <button id="next">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- add-task modal -->
+      <div class="modal-overlay" id="modal">
+        <form class="add-task" id="addTaskModal">
+          <div class="heading">
+            <h3>Add Task</h3>
+            <button id="modalCancel" class="cancel">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div>
+            <p>select status</p>
+
+            <div class="buttons">
+              <button class="status-btn active-status-btn">Todo</button>
+              <button class="status-btn">in progress</button>
+              <button class="status-btn">Done</button>
+              <button class="status-btn">On hold</button>
+            </div>
+          </div>
+
+          <div>
+            <p>select Date</p>
+            <input type="date" class="date-input" id="date" />
+          </div>
+          <div>
+            <p>select priority</p>
+            <div class="buttons">
+              <button class="priority-btn active-status-btn">High</button>
+              <button class="priority-btn">Low</button>
+              <button class="priority-btn">Medium</button>
+            </div>
+          </div>
+
+          <div>
+            <p>Describe your Task</p>
+            <textarea
+              class="textarea-box"
+              name=""
+              id="description"
+              placeholder="Description..."
+            ></textarea
+            ><br />
+            <button class="add-task-btn" type="button">Add Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/a1a5e92d16.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="./task-app-with-filter.js"></script>
+  </body>
+</html>

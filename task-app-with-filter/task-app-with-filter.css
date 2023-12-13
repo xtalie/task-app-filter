@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+
+html {
+  /* font-size: 62.5%; */
+  overflow-x: hidden;
+}
+
+:root {
+  --primary-color: rgb(238, 236, 236);
+  --neon-green: rgba(49, 151, 151);
+  --Done-low-color: teal;
+  --done-low-bg-color: rgba(0, 128, 128, 0.215);
+  --in-progress: orange;
+  --in-progress-bg-color: rgba(255, 166, 0, 0.226);
+  --todo-color: rgb(228, 106, 147);
+  --todo-bg-color: rgba(255, 99, 71, 0.281);
+  --high-color: tomato;
+  --high-bg-color: rgba(255, 99, 71, 0.281);
+  --medium-color: blueviolet;
+  --medium-bg-color: rgba(137, 43, 226, 0.249);
+  --secondary-gray-color: rgb(161, 160, 160);
+}
+
+
+.container {
+  margin: 0 auto;
+  padding: 0 9%;
+}
+
+.user-name,
+.name {
+  margin-top: 10px;
+  font-size: 30px;
+}
+/* search bar style section */
+
+.head-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.search-bar {
+  display: flex;
+  border: 2px solid var(--primary-color);
+
+  align-items: center;
+  border-radius: 5px;
+  width: 50%;
+  height: 35px;
+  padding: 0 10px;
+}
+
+.search-bar:focus-visible,
+.search-bar:focus-within {
+  border: 2px solid var(--neon-green);
+}
+
+.fa-magnifying-glass {
+  color: var(--secondary-gray-color);
+}
+
+.cancel > button {
+  all: unset;
+  color: var(--secondary-gray-color);
+
+  display: none;
+}
+
+::placeholder {
+  font-size: 15px;
+}
+
+.input {
+  border: none;
+  outline: none;
+
+  width: 100%;
+  font-size: 16px;
+
+  margin-left: 10px;
+}
+
+.cancel {
+  all: unset;
+  margin-left: 13px;
+
+  cursor: pointer;
+}
+.add-items button {
+  border-radius: 5px;
+  padding: 5px 15px;
+  color: var(--done-low-color);
+  font-weight: 600;
+  box-shadow: 3px rgba(0, 0, 0, 0.3);
+  border: none;
+  color: var(--neon-green);
+}
+
+/* filter by status style section */
+
+.body-content {
+  margin: 10px 0 20px 0;
+}
+
+.filtered-options {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 5px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  color: var(--done-low-color);
+  background-color: var(--done-low-bg-color);
+  font-weight: 700;
+}
+
+.btn-color {
+  color: black;
+  background-color: var(--primary-color);
+  margin-left: 5px;
+}
+
+.tool {
+  position: absolute;
+  background-color: black;
+  color: var(--primary-color);
+  font-size: 14px;
+  padding: 3px 8px;
+  top: 120px;
+  right: 50px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3;
+  border-radius: 2px;
+  text-transform: capitalize;
+}
+.filter-img:hover .tool {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* selected */
+.total-selected-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+  background-color: rgb(249, 248, 248);
+  margin-bottom: 15px;
+  display: none;
+}
+
+.selected-text {
+  font-weight: 500;
+}
+
+.fa-trash-can {
+  color: red;
+  opacity: 0.5;
+}
+
+/* Error Message styles */
+
+.error-message {
+  text-align: center;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.error-search-img .fa-magnifying-glass {
+  font-size: 45px;
+  color: var(--secondary-gray-color);
+
+  margin: 10px 0;
+}
+
+.error-message p {
+  color: var(--secondary-gray-color);
+}
+
+/* Table styles */
+
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-head th {
+  background-color: var(--primary-color);
+  padding: 8px 5px;
+  text-align: left;
+  font-weight: 700;
+}
+
+td {
+  border-bottom: 1.5px solid var(--primary-color);
+  padding: 6px 5px;
+  border-collapse: collapse;
+}
+
+.description {
+  transition: 0.3s;
+}
+
+.description:hover {
+  background-color: rgb(249, 248, 248);
+}
+
+.inprogress,
+.todo,
+.high,
+.medium,
+.done,
+.low {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+.inprogress {
+  color: var(--in-progress);
+  background-color: var(--in-progress-bg-color);
+}
+
+.todo {
+  color: var(--todo-color);
+  background-color: var(--todo-bg-color);
+}
+
+.high {
+  color: var(--High-color);
+  background-color: var(--high-bg-color);
+}
+
+.medium {
+  color: var(--medium-color);
+  background-color: var(--medium-bg-color);
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+
+.pagination button {
+  all: unset;
+  columns: var(--primary-color);
+  cursor: pointer;
+}
+
+.page-number {
+  margin: 0 30px;
+}
+
+/* modal */
+
+.add-task {
+  /* display: none; */
+  flex-direction: column;
+  font-size: 12px;
+  width: 370px;
+  border: 2px solid var(--primary-color);
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.heading > h3 {
+  font-size: 18px;
+}
+.date-input {
+  width: 100%;
+  border: 2px solid var(--primary-color);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+.add-task p {
+  margin: 10px 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+.add-task,
+.buttons,
+.btn {
+  font-size: 12px;
+}
+.textarea-box {
+  width: 100%;
+  max-width: 335px;
+  max-height: 70px;
+  padding: 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.add-task-btn {
+  width: 100%;
+  text-align: center;
+  background-color: var(--Done-low-color);
+  padding: 8px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.add-task-btn:hover {
+  background-color: var(--Done-low-color);
+  opacity: 0.9;
+}
+
+.modal-overlay {
+  display: none;
+  background-color: #fff;
+  opacity: 0.8;
+  z-index: 100;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  overflow-y: scroll;
+}
+
+.status-btn,
+.priority-btn {
+  padding: 5px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.active-status-btn {
+  color: var(--neon-green);
+  background-color: var(--done-low-bg-color);
+}
